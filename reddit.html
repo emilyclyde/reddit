@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ 
+<!--
+Emily Clyde
+
+Technology used: Notepad++, HTML, CSS, JavaScript, Reddit Widget
+
+1.My rational mind, if I came across this situation in the real world would be to use a plug-in and revise the the CSS in the back-end,
+however this was a coding test and I felt that simply using Word Press or Joomla was not acceptable. So I went back to something kind
+of really, really basic. I am using the API using JS function (s) to pass the widget into the getElementById. This seemed the best way due to time
+constraints.
+
+2. Some barriers: I had to understand Reddit first. I never use it. Then I had to research the Reddit API. Then I had to test it
+on JS fiddle, because I test EVERYTHING first. Then I obsessed over the CSS, which I tweaked using the inspect element in the browser. Thank you browser.  
+
+3. So overall this entire homework realistically took me 3.5 hours (including written test here). Frankly there are probably better ways to do this, but I wanted to keep the code
+simple and clean.  
+
+4. This is NOT complete, but more of a start in my opinion. The r/business feed does populate. It is responsive, go me. There are elements missing that are in the
+mock-up. 
+
+5. Thanks :-)! The process is always interesting!  
+
+ -->
+<head>
+<link rel="stylesheet" href="redit.css">
+
+<script>
+//Create the JS//
+
+var s = document.createElement('script'), 
+    content = '';
+
+s.src = 'http://www.reddit.com/r/business/new/.embed?limit=4&amp;sort=new&amp;style=off';
+
+document.write = function(s) {
+    content += s;
+};
+
+s.onload = function(){
+    document.getElementById('reddit').innerHTML = content;
+};
+document.getElementsByTagName('head')[0].appendChild(s);
+
+</script>
+</head>
+
+<body>
+
+<h1><span>r/Business</span></h1>
+
+<div><img src="upCircle.png" alt="up circle" class="center"></div>
+
+<div class="r-container">
+
+<div id="reddit"></div>
+
+</div>
+
+<div><img src="downCircle.png" alt="down circle" class="center"></div>
+
+</body>
+
+</html>
+
